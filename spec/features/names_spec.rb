@@ -6,6 +6,6 @@ feature 'Testing players' do
     fill_in :name2, with: 'Chris'
     click_button 'Submit Names'
 
-    expect(page).to have_content 'Leon & Chris'
+    expect(page).to have_content 'Leon vs Chris'
   end
 end
