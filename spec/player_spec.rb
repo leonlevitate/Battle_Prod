@@ -4,7 +4,7 @@ describe 'Player' do
   subject(:leon) { Player.new('Leon') }
   subject(:chris) { Player.new('Chris') }
 
-  let(:default_hp){Player::DEFAULT_HP}
+  let(:hit_points){Player::DEFAULT_HIT_POINTS}
 
   describe '#name' do
     it 'returns the name' do
@@ -12,16 +12,22 @@ describe 'Player' do
     end
   end
 
-  describe '#default_hp' do
+  describe '#hit_points' do
     it 'shows the current points' do
-      expect(leon.default_hp).to eq default_hp
+      expect(leon.hit_points).to eq hit_points
     end
   end
 
   describe '#attack' do
     it 'attacks the player' do
-      expect(chris).to receive(:be_hit)
+      expect(chris).to receive(:receive_damage)
       leon.attack(chris)
+    end
+  end
+
+  describe '#receive_damage' do
+    it 'reduces the players points' do
+      expect { leon.receive_damage }.to change { leon.hit_points }.by(-10)
     end
   end
 end

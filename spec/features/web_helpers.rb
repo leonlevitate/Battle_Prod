@@ -1,6 +1,6 @@
 def sign_in_and_play
   visit('/')
-  fill_in :name1, with: 'Leon'
-  fill_in :name2, with: 'Chris'
+  fill_in :player_1_name, with: 'Leon'
+  fill_in :player_2_name, with: 'Chris'
   click_button 'Submit Names'
 end
